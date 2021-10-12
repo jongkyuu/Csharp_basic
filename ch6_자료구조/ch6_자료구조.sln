@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch6_3_MultiDimensionalArray
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch6_4_List", "ch6_4_List\ch6_4_List.csproj", "{84850DDE-9A0A-496E-82B5-38D25470C78D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ch6_5_Dict", "ch6_5_Dict\ch6_5_Dict.csproj", "{D127AD70-99D7-47B6-82AE-EF136B0B6EC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{84850DDE-9A0A-496E-82B5-38D25470C78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84850DDE-9A0A-496E-82B5-38D25470C78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84850DDE-9A0A-496E-82B5-38D25470C78D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D127AD70-99D7-47B6-82AE-EF136B0B6EC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D127AD70-99D7-47B6-82AE-EF136B0B6EC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D127AD70-99D7-47B6-82AE-EF136B0B6EC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D127AD70-99D7-47B6-82AE-EF136B0B6EC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
