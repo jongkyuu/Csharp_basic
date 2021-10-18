@@ -62,8 +62,12 @@ namespace ch7_4_Delegate
         }
 
         // 델리게이트는 일반화 시킬 수 있다. 델리게이트를 일반화하면 어떤 타입의 함수라도 등록할 수 있다
-        delegate T sortMethod2<T>(T[] arr);
+        delegate int SortMethod2<T>(T[] arr);
 
+        static void Sort2<T>(T[] arr ,SortMethod2<T> sortmethod2 )
+        {
+            sortmethod2(arr);
+        }
 
         static void Main(string[] args)
         {
@@ -76,13 +80,12 @@ namespace ch7_4_Delegate
             // OnClicked 타입의 객체를 만듬
             // 이렇게 clicked 델리게이트 객체를 만들면 델리게이트 체이닝을 할 수 있음
             OnClicked clicked = new OnClicked(TestDelegate);  // 여기에 콜백 함수를 넣어줌
-            clicked += TestDelegate2;
-            //clicked.Invoke();  // Invoke 메서드를 호출하거나
-            //clicked(); // 함수를 호출하듯이 직접 이렇게 호출하거나
-            //ButtonPressed_3(clicked);
-            // OnClicked clicked = TestDelegate; // new 사용 없이 이렇게 생성할 수 있음. 컴파일러가 알아서 new를 붙여서 생성해줌
+            //OnClicked clicked = TestDelegate; // new 사용 없이 이렇게 생성할 수 있음. 컴파일러가 알아서 new를 붙여서 생성해줌
             clicked += TestDelegate2;  // Chaining. delegate 객체에 함수를 추가로 등록할 수 있다.
-            clicked(); // 이렇게 호출하거나 아래처럼 호출할 수 있음
+
+            //clicked.Invoke();  // Invoke 메서드를 호출하거나
+            clicked(); // 함수를 호출하듯이 직접 이렇게 호출할 수 있음
+            //ButtonPressed_3(clicked);
                        // TestDelegate() 실행 후 TestDelegate2()가 실행된다.
                        // 그러나 clicked 델리게이트는 자신에게 등록된 함수와 그 내용에 대해 알지 못한다. 그저 넘겨받은 함수 포인터들을 차례대로 실행시켜줄 뿐이다
             ButtonPressed_3(clicked);
