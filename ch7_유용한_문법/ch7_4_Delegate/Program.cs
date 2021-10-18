@@ -36,6 +36,7 @@ namespace ch7_4_Delegate
         static void ButtonPressed_3(OnClicked clickedFuntion)
         {
             clickedFuntion(); // 필요할때 clickedFuntion()을 호출
+            //clickedFuntion.Invoke();
         }
 
         // 인자로 넣을 함수를 OnClicked 과 똑같은 형식으로 민들어줌
@@ -64,8 +65,9 @@ namespace ch7_4_Delegate
             // 이렇게 객체를 만들면 델리게이트 체이닝을 할 수 있음
             OnClicked clicked = new OnClicked(TestDelegate);  // 여기에 콜백 함수를 넣어줌
             clicked += TestDelegate2;
-            // clicked(); 이렇게 호출하거나 아래처럼 호출할 수 있음 
-            ButtonPressed_3(clicked);
+            //clicked.Invoke();  // Invoke 메서드를 호출하거나
+            //clicked(); // 함수를 호출하듯이 직접 이렇게 호출하거나
+            //ButtonPressed_3(clicked);
         }
     }
 }

@@ -43,7 +43,7 @@ namespace ch7_1_Generic
     }
 
     // Generic Type에 조건을 추가할 수 있다
-    class MyListStruct<T> where T : struct   // 여기서 T는 값 형식이어야 함.
+    class MyListStruct<T> where T : struct   // : struct일때 T는 값 형식이어야 함.
                                              // : class는 참조 형식,
                                              // : new()는 어떠한 인자도 받지 않는 기본 생성자가 있어야 함.
                                              // : Monster는 Monster나 Monster를 상속받은 클래스가 들어가야 함
