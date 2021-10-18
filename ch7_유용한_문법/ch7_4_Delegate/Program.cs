@@ -52,6 +52,18 @@ namespace ch7_4_Delegate
         }
 
         // Sorting 함수를 만들때 비교하는 부분만 Delegate로 받으면 다양한 방식으로 동작하도록 만들 수 있다
+        static void AscendingSort() { /* 오름차순 정렬시키는 내용 */ }
+        static void DescendingSort() { /* 내림차순 정렬시키는 내용 */ }
+
+        delegate void SortMethod();
+        static void Sort(SortMethod sortMethod)
+        {
+            sortMethod();
+        }
+
+        // 델리게이트는 일반화 시킬 수 있다. 델리게이트를 일반화하면 어떤 타입의 함수라도 등록할 수 있다
+        delegate T sortMethod2<T>(T[] arr);
+
 
         static void Main(string[] args)
         {
@@ -62,12 +74,22 @@ namespace ch7_4_Delegate
                                             // C++의 함수 포인터랑 비슷함. 함수자체의 주소에 참조를 넘겨준것 같은 느낌
             // 실제 내부적으로는 아래와 같이 구현됨
             // OnClicked 타입의 객체를 만듬
-            // 이렇게 객체를 만들면 델리게이트 체이닝을 할 수 있음
+            // 이렇게 clicked 델리게이트 객체를 만들면 델리게이트 체이닝을 할 수 있음
             OnClicked clicked = new OnClicked(TestDelegate);  // 여기에 콜백 함수를 넣어줌
             clicked += TestDelegate2;
             //clicked.Invoke();  // Invoke 메서드를 호출하거나
             //clicked(); // 함수를 호출하듯이 직접 이렇게 호출하거나
             //ButtonPressed_3(clicked);
+            // OnClicked clicked = TestDelegate; // new 사용 없이 이렇게 생성할 수 있음. 컴파일러가 알아서 new를 붙여서 생성해줌
+            clicked += TestDelegate2;  // Chaining. delegate 객체에 함수를 추가로 등록할 수 있다.
+            clicked(); // 이렇게 호출하거나 아래처럼 호출할 수 있음
+                       // TestDelegate() 실행 후 TestDelegate2()가 실행된다.
+                       // 그러나 clicked 델리게이트는 자신에게 등록된 함수와 그 내용에 대해 알지 못한다. 그저 넘겨받은 함수 포인터들을 차례대로 실행시켜줄 뿐이다
+            ButtonPressed_3(clicked);
+
+            // Sort 함수의 내용은 변하지 않지만 인수로 넘겨주는 함수에 따라 정렬 방식을 변경할 수 있다. 
+            Sort(AscendingSort);
+            Sort(DescendingSort);
         }
     }
 }
